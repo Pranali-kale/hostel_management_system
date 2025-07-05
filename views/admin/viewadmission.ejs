@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Admissions</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        padding: 30px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    thead {
+        background-color: #2c3e50;
+        color: #ffffff;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    button {
+        padding: 6px 12px;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #c0392b;
+    }
+
+    form {
+        margin: 0;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <h2>Admission Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Marks</th>
+                <th>Phone</th>
+                <th>Room Preference</th>
+                <th>action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% admissions.forEach(admission => { %>
+                <tr>
+                    <td><%= admission.name %></td>
+                    <td><%= admission.email %></td>
+                    <td><%= admission.marks %></td>
+                    <td><%= admission.phone %></td>
+                    <td><%= admission.roomPreference %></td>
+                    <td>
+                        <form action="/admission/admin/delete/<%= admission._id %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+                
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
+
+
+                    

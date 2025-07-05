@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Doctor</title>
+</head>
+<body>
+    <h1>Edit Doctor</h1>
+    <form action="/admin/doctor/edit/<%= doctor._id %>" method="POST">
+        <input type="text" name="name" value="<%= doctor.name %>" required>
+        <input type="text" name="address" value="<%= doctor.address %>" required>
+        <input type="text" name="timings" value="<%= doctor.timings %>" required>
+        <input type="text" name="contact" value="<%= doctor.contact %>" required>
+        <button type="submit">Update Doctor</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Page</title>
+    <style>
+
+
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5); /* Attractive gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Notice Board Section */
+#notices {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for better contrast */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Notice Board Title */
+#notices h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Notice List */
+#notices ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Individual Notice */
+#notices li {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect on notices */
+#notices li:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    background: #f1f8ff;
+}
+
+/* Notice Title */
+#notices h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+/* Notice Content */
+#notices p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Date & Time */
+#notices small {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+}
+a{
+    position: absolute;
+    top:95px;
+    left:1020px;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    
+<!-- Notice Module on Home Page -->
+<div class="module" id="notice-module">
+    <a href="/">❌</a>
+    <h2>📢 Notice Board</h2>
+
+    <section id="notices">
+<ul>
+    <% if(notices.length>0){ %>
+
+    <% notices.forEach(notice => { %>
+    <li><h3><%=notice.title %></h3>
+    <p><%=notice.description %></p>
+<small> Date:<%= new Date(notice.date).toDateString() %></small>
+</li>
+<% }); %> 
+<% } else { %>
+    <p> No notices available </p>
+<% } %>
+    
+</ul>
+    </section>
+
+       
+</div>
+
+
+
+</body>
+</html>

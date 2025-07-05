@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="/stylesheets/homepagephoto.css"> <!-- Link CSS file -->
+</head>
+<body>
+
+    <div class="gallery-container">
+        
+            
+        <a href="/">❌</a>
+        <h2>📸 Photo Gallery</h2>
+        
+
+        <% if (images.length > 0) { %>
+            <div class="gallery-grid">
+                <% images.forEach(image => { %>
+                    <div class="gallery-item">
+                        <img src="<%= image.imagePath %>" alt="Gallery Image" onclick="openFullScreen('<%= image.imagePath %>')">
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No images uploaded yet.</p>
+        <% } %>
+    </div>
+
+    <!-- Full-Screen Image Overlay -->
+    <div id="fullScreenOverlay" class="overlay">
+        <span class="close-btn" onclick="closeFullScreen()">❌</span>
+        <img id="fullScreenImage" class="overlay-image" src="">
+    </div>
+
+    <script>
+        function openFullScreen(imageSrc) {
+            document.getElementById("fullScreenImage").src = imageSrc;
+            document.getElementById("fullScreenOverlay").style.display = "flex";
+        }
+
+        function closeFullScreen() {
+            document.getElementById("fullScreenOverlay").style.display = "none";
+        }
+    </script>
+
+
+</body>
+</html>
+

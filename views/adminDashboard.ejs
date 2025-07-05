@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/adminDashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <h2 class="heading">Admin Dashboard</h2>
+            <ul>
+                <li><a href="/admin/students">Student Profiles</a></li>
+                <li><a href="/admin/employees">Add Employee</a></li>
+                <li><a href="/admin/notices">Add Notice</a></li>
+                <li><a href="/admin/gallery">Add Image</a></li>
+                <li><a href="/admin/mess">Mess Details</a></li>
+                <li><a href="/admin/rooms">Room Details</a></li>
+                <li><a href="/admin/doctor">Doctor Page</a></li>
+                <li><a href="/complaints/admin">View Complaints</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+        <main class="content" style="position: absolute;
+        left: 330px;
+        top: 187px">
+            <h1>Welcome to Admin Dashboard</h1>
+            
+            <p>Select a module from the sidebar to manage hostel operations.</p>
+            <button onclick="window.location.href='/admin/fee_structure';">Manage Fees</button>
+            <button onclick="window.location.href='/admission/admin';">View Forms</button>
+            <button onclick="window.location.href='/messages';">Contact Queries</button>
+        </main>
+    </div>
+</body>
+</html>

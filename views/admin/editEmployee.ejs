@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Edit Employee</h2>
+
+<form action="/admin/employees/edit/<%= employee._id %>" method="POST">
+    <label>Name:</label>
+    <input type="text" name="name" value="<%= employee.name %>" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="<%= employee.email %>" required>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" value="<%= employee.phone %>" required>
+
+    <label>Position:</label>
+    <input type="text" name="position" value="<%= employee.position %>" required>
+
+    <label>Duty Time:</label>
+    <input type="text" name="dutyTime" value="<%= employee.dutyTime %>" required>
+
+    <button type="submit">Update Employee</button>
+</form>
+
+</body>
+</html>

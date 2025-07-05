@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/stylesheets/studentDashbord.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Navigation Menu */
+ul {
+    list-style: none;
+    background: #007bff;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+}
+
+ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+ul li a:hover {
+    background: #0056b3;
+}
+
+/* Main Content */
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    ul {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    ul li {
+        display: inline-block;
+    }
+    main {
+        margin-left: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h2>Welcome, <%= student.name %></h2>
+    <ul>
+        <li><a href="/student/profile">View Profile</a></li>
+        <li><a href="/student/employees">View Employees</a></li>
+        <li><a href="/student/mess">View Mess Details</a></li>
+        <li><a href="/student/doctors">View Doctors</a></li>
+        <li><a href="/student/complaints">Add Complaint</a></li>
+    </ul>
+</body>
+</html>

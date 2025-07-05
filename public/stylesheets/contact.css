@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.contact{
+    position:relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(15, 15, 59);
+    background-size: cover;
+}
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+.contact .content h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+}
+.contact .content p{
+    font-size: 36;
+    font-weight: 300;
+    color:#fff
+}
+.container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container .contactInfo {
+    width:50%;
+    display:flex;
+    flex-direction: column;
+
+}
+.container .contactInfo .box
+{
+    position:relative;
+    padding:20px 0;
+    display: flex;
+}
+.container .contactInfo .box .icon span{
+    min-width: 40px;
+    height: 40px;
+    background: #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+
+}
+.container .contactInfo .box .text
+{display: flex;
+    margin-left:20px;
+    font-size: 16px;
+    color:#fff;
+    flex-direction: column;
+    font-weight: 300;
+
+}
+.container .contactInfo .box .text h3{
+    font-weight: 500;
+    color:#65cfdd
+}
+.contactForm{
+    width:40%;
+    padding: 40px;
+    background: #fff;
+}
+.contact h3{
+    font-size: 30px;
+    color:#333;
+    font-weight: 500;
+}
+.contactForm .inputBox{
+    position:relative;
+    width: 100%;
+    margin-top: 10px;
+
+}
+.contactForm .inputBox input,.contactForm .inputBox textarea
+{                                                                                   
+width: 100%;
+padding: 5px 0;
+font-size:16px;
+margin:10px 0;
+border:none;
+border-bottom: 2px solid #333;
+outline: none;
+resize: none;
+}
+
+    button {
+        background-color: #3f415c;
+        color: white;
+        margin-top: 8px;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #1b0538;
+      }

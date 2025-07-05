@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Allocate Room</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 60px;
+            margin-left: 250px;
+            background: #e7e8e9;
+         }
+         #room{
+            /* border: 2px solid black; */
+            width: 750px;
+            height: 450px;
+            margin: 20px;
+            /* background-color: rgba(246, 246, 248, 0.945); */
+         }
+        h2 { text-align: center; }
+        form { max-width: 600px; margin: auto; 
+        
+        background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        select, button { width: 100%; padding: 10px; margin-bottom: 20px; }
+        button:hover {
+            background: #273f27;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+    <h2>Allocate Room</h2>
+
+    <form method="POST" action="/admin/rooms/allocate">
+        <label>Select Student:</label>
+        <select name="studentId" required>
+            <% students.forEach(student => { %>
+                <option value="<%= student._id %>"><%= student.name %> (Roll: <%= student.rollNumber %>)</option>
+            <% }) %>
+        </select>
+
+        <label>Select Room:</label>
+        <select name="roomId" required>
+            <% rooms.forEach(room => { %>
+                
+                <option value="<%= room._id %>">Room: <%= room.roomNumber %> - <%= room.type %> (Occupied: <%= room.occupied %> / <%= room.capacity %>)</option>
+
+                <% }) %>
+        </select>
+
+        <button type="submit">Allocate Room</button>
+    </form> -->
+
+
+    
+    
+
+
+</body>
+</html>
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Allocate Room</title>
+</head>
+<body>
+    <div id="room">
+    <h2>Allocate Room</h2>
+    <form action="/admin/rooms/allocate" method="POST">
+        <label>Student:</label>
+        <select name="studentId">
+            <% students.forEach(student => { %>
+                <option value="<%= student._id %>"><%= student.name %> (Roll: <%= student.rollNumber %>)</option>
+            <% }); %>
+        </select>
+        <label>Room:</label>
+        <select name="roomId">
+            <% rooms.forEach(room => { %>
+                <!-- <option value="<%= room._id %>">Room <%= room.roomNumber %> (Capacity: <%= room.capacity %>)</option> -->
+                <option value="<%= room._id %>">Room <%= room.roomNumber %> (Capacity: <%= room.capacity %>)</option>
+            <% }); %>
+        </select>
+        <button type="submit">Allocate Room</button>
+    </form>
+</div>
+</body>
+</html> 
+
+
+
+
+
+

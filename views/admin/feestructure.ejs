@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Fee Structure</title>
+    <!-- <link rel="stylesheet" href="/css/admin.css"> -->
+     <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    position: relative;
+    padding-bottom: 40px;
+}
+
+td form {
+    display: block;
+    margin-top: 5px;
+} 
+
+td button {
+    background-color: #dc3545;
+}
+
+td button:hover {
+    background-color: #c82333;
+}
+#update{
+    background-color: rgb(116, 143, 62);
+    position:absolute;
+    left:236px;
+}
+#delete{
+    position: absolute;
+    top: 122px;
+    left: 330px;
+}
+     </style>
+
+</head>
+<body>
+<h2>Fee Structure Management</h2>
+
+<form action="/admin/fee_structure/add" method="POST">
+    <label>Year:</label>
+    <input type="text" name="year" required>
+    <label>Fee Amount:</label>
+    <input type="number" name="amount" required>
+    <button type="submit">Add Fee</button>
+</form>
+
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Amount</th>
+        <th>Actions</th>
+    </tr>
+     <% fees.forEach(fee => { %>
+    <tr>
+        <td><%= fee.year %></td>
+        <td>₹<%= fee.amount %></td>
+        <td> 
+            <form action="/admin/fee_structure/edit/<%= fee._id %>" method="POST">
+                <input type="text" name="year" value="<%= fee.year %>" required>
+                <input type="number" name="amount" value="<%= fee.amount %>" required>
+                <button  id ="update" type="submit">Update</button>
+            </form>
+            <form action="/admin/fee_structure/delete/<%= fee._id %>" method="POST">
+                <button  id="delete" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <% }); %>
+</table>

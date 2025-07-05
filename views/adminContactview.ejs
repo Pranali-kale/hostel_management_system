@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Contact Messages</title>
+  <style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    padding: 30px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  li {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #3498db;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+  }
+
+  strong {
+    font-size: 18px;
+    color: #2c3e50;
+  }
+
+  em {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+    font-style: italic;
+  }
+
+  button {
+    padding: 8px 14px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #c0392b;
+  }
+
+  hr {
+    margin-top: 20px;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+
+  form {
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+  <h2>Contact Messages</h2>
+  <ul>
+    <% messages.forEach(msg => { %>
+      <li>
+        <strong><%= msg.name %></strong> (<%= msg.email %>)<br>
+        <em><%= msg.message %></em><br>
+        <form action="/messages/delete/<%= msg._id %>" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+        <hr>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

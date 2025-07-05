@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Complaints</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: #ffffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e8f4ff;
+        }
+
+        td {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2> Admin Complaints </h2>
+    <table border="1">
+        <tr>
+            <th>all complaints </th>
+            <th>Roll No</th>
+            <th>Complaints</th>
+            <th>action</th>
+        </tr>
+        <% complaints.forEach(complaint => { %>
+        <tr>
+            <td><%= complaint.studentName %></td>
+            <td><%= complaint.studentRollNo %></td>
+            <td><%= complaint.complaintText %></td>
+            <td><form action="/complaints/admin/delete/<%= complaint._id %>" method="POST">
+                            <button type="submit">Delete</button>
+                        </form></td>
+
+        </tr>
+        <% }); %>
+    </table>
+</body>
+</html>

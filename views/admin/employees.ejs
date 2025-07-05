@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+        }
+        .add-button {
+            display: block;
+            width: 200px;
+            text-align: center;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .add-button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .edit, .delete {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+        }
+        .edit {
+            background-color: #ffc107;
+        }
+        .delete {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Employees</h2>
+
+<a href="/admin/employees/add" class="add-button">Add New Employee</a>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Position</th>
+        <th>Duty Time</th>
+        <th>Actions</th>
+    </tr>
+    <% employees.forEach(employee => { %>
+        <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.phone %></td>
+            <td><%= employee.position %></td>
+            <td><%= employee.dutyTime %></td>
+            <td>
+                <a href="/admin/employees/edit/<%= employee._id %>" class="edit">Edit</a>
+                <a href="/admin/employees/delete/<%= employee._id %>" class="delete" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+
+</body>
+</html>

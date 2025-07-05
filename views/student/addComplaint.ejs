@@ -1,0 +1,97 @@
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Submit Complaint</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Container */
+form {
+    background: #ffffff;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Submit Button */
+form button {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Submit a Complaint</h2>
+    <form action="/complaints/submit" method="POST">
+        <label>Student Name:</label>
+        <input type="text" name="studentName" required>
+
+        <label>Roll Number:</label>
+        <input type="text" name="studentRollNo" required>
+
+        <label>Complaint:</label>
+        <textarea name="complaintText" required></textarea>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+</body>
+</html>
+
+
+

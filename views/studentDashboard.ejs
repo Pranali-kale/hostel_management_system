@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    
+    <style>
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    
+}
+
+/* Body Styling */
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+} */
+
+/* Sidebar Navigation Styling */
+nav {
+    width: 250px;
+    background-color: rgba(11, 10, 14, 0.9);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -0;
+    padding-top: 20px;
+    overflow-y: auto;
+}
+
+nav ul {
+    list-style: none;
+    margin:50px 0px;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+}
+
+/* /* Header Styling */
+h2 {
+    font-size: 28px;
+    font-weight: 700px;
+     text-align: center;
+      margin-left: 20px;
+      margin-top: 125px;
+      flex: 1;
+      padding:30px;color: #163b61;
+   
+} 
+
+ /* Logout Button Styling  */
+
+  #logbtn {
+   /* display: block;
+    width: calc(100% - 40px);
+    /* margin: 20px; */
+    padding: 10px 10px;
+    background-color: #dc3545;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-left: 630px;
+    color: #ffffff;
+    cursor:pointer;
+    border:none;
+   /* border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; */
+} 
+/* .content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+   */
+#logbtn:hover {
+    background-color: #c82333;
+}
+
+ </style>
+</head>
+<body>
+    <h2>Welcome, <%= student.name %>!</h2>
+    <!-- <p>Email: <%= student.email %></p> -->
+    <nav>
+        <ul>
+            <li><a href="/dashboard/profile">View Profile</a></li>
+            <li><a href="/dashboard/employees">View Employees</a></li>
+            <li><a href="/dashboard/mess">Mess Details</a></li>
+            <li><a href="/dashboard/doctors">Doctors Page</a></li>
+            <li><a href="/complaints">Add Complaint</a></li>
+            <!-- views/studentDashboard.ejs -->
+            <li><a href="/modify-password">
+              <button>Modify Password</button>
+             </a></li>
+            
+            <!-- <li><a href="/logout">Logout</a></li> -->
+        </ul>
+        
+    </nav>
+    
+      <button  id="logbtn" onclick="window.location.href='/student/logout'">Logout</button> 
+</body>
+</html>

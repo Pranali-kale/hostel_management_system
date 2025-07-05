@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Mess Menu</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+    <h2>Edit Mess Menu</h2>
+
+    <form action="/admin/mess/update/<%= menu._id %>" method="POST">
+        <label>Day:</label>
+        <input type="text" name="day" value="<%= menu.day %>" readonly>
+
+        <label>Breakfast:</label>
+        <input type="text" name="breakfast" value="<%= menu.breakfast %>" required>
+
+        <label>Lunch:</label>
+        <input type="text" name="lunch" value="<%= menu.lunch %>" required>
+
+        <label>Dinner:</label>
+        <input type="text" name="dinner" value="<%= menu.dinner %>" required>
+
+        <button type="submit">Update</button>
+    </form>
+
+</body>
+</html>

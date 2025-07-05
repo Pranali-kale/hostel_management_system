@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+<style>
+    
+
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa; /* Light cyan background */
+    color: #333;
+    line-height: 1.6;
+    height: 100vh;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Styling */
+.profile-container {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header Styling */
+h2 {
+    
+    text-align: center;
+    margin: 30px;
+    padding-top: 138px;
+    color: #00796b; /* Teal color */
+}
+
+/* Paragraph Styling */
+p {
+    margin: 10px;
+    font-size: 16px;
+    padding:10px;
+
+    
+}
+
+
+
+ .container{
+   
+     text-align: center;
+     font-size: 18px;
+} 
+ 
+
+</style>
+
+</head>
+<body>
+    <h2>Student Profile</h2>
+    <div class="container">
+    <p>Name: <%= student.name %></p>
+   
+<p>Roll Number: <%= student.rollNumber %></p>
+    <p>Room Number: <%= student.roomNumber %></p>
+    <p>Email: <%= student.email %></p>
+    <p>Phone: <%= student.phone %></p>
+</div>
+</body>
+</html>

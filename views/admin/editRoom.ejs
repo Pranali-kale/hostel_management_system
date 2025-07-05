@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Room</title>
+    <style>
+        body{
+            padding:30px;
+            background-color: #f8f9fa;
+        }
+        div{
+            background: white;
+            width:500px;
+            height:250px;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            left:370px;
+            top:120px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+            padding: 10px;
+        }
+        h1{
+            text-align: center;
+            color:#2c3e50;
+            padding:10px;
+        }
+        form{
+            text-align: center;
+        }
+        label{
+            font-size: 18px;
+            font-weight: 600;
+        }
+button{
+    padding: 5px;
+}
+    </style>
+</head>
+<body>
+    <div>
+    <h1>Edit Room <%= room.roomNumber %></h1>
+    <form action="/admin/rooms/update/<%= room._id %>" method="POST">
+        <label>Room Number:</label>
+        <input type="text" name="roomNumber" value="<%= room.roomNumber %>" required><br><br>
+
+        
+        <label>Capacity:</label>
+        <input type="number" name="capacity" value="<%= room.capacity %>" required><br><br>
+
+        <button type="submit">Update Room</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!--   ***  <!DOCTYPE html>
+<html lang="en">
+
+
+*****below  is real
+<head>
+    <title>Edit Room</title>
+</head>
+<body>
+    <h2>Edit Room</h2>
+    <form action="/admin/room/edit/<%= room._id %>" method="POST">
+        <label>Room Number:</label>
+        <input type="text" name="roomNumber" value="<%= room.roomNumber %>" required>
+        <label>Capacity:</label>
+        <input type="number" name="capacity" value="<%= room.capacity %>" required>
+        <label>Status:</label>
+        <select name="status">
+            <option value="Available" <%= room.status === "Available" ? "selected" : "" %>>Available</option>
+            <option value="Occupied" <%= room.status === "Occupied" ? "selected" : "" %>>Occupied</option>
+        </select>
+        <button type="submit">Update Room</button>
+    </form>
+</body>
+</html> -->

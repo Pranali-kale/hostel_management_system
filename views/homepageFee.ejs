@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fees structure</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+}
+
+td {
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+    transition: 0.3s;
+}
+a{
+    text-decoration:none;
+    position:absolute;
+    top:25px;
+    left:1040px;
+}
+    </style>
+</head>
+<body>
+    <h2>Fee Structure</h2>
+    <a href="/">❌</a>
+<table>
+    <tr>
+        <th>Year</th>
+        <th>Amount</th>
+    </tr>
+    <% fees.forEach(fee => { %>
+    <tr>
+        <td><%= fee.year %></td>
+        <td>₹<%= fee.amount %></td>
+    </tr>
+    <% }); %>
+</table>
+    
+</body>
+</html>

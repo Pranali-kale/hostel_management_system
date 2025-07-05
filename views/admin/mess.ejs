@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Management</title>
+   <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+h2{
+    text-align: center;
+}
+/* Form Styling */
+form {
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #218838;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Action Links Styling */
+table a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #ffffff;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+table a[href*="edit"] {
+    background-color: #ffc107;
+}
+
+table a[href*="edit"]:hover {
+    background-color: #e0a800;
+}
+
+table a[href*="delete"] {
+    background-color: #dc3545;
+}
+
+table a[href*="delete"]:hover {
+    background-color: #c82333;
+}
+
+   </style>
+</head>
+<body>
+
+    <h2>Mess Management</h2>
+
+    <!-- Add Mess Menu Form -->
+    <form action="/admin/mess/add" method="POST">
+        <label>Day:</label>
+        <input type="text" name="day" required>
+        
+        <label>Breakfast:</label>
+        <input type="text" name="breakfast" required>
+        
+        <label>Lunch:</label>
+        <input type="text" name="lunch" required>
+        
+        <label>Dinner:</label>
+        <input type="text" name="dinner" required>
+        
+        <button type="submit">Add Menu</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Mess Menu -->
+    <h3>Weekly Mess Menu</h3>
+    <table border="1">
+        <tr>
+            <th>Day</th>
+            <th>Breakfast</th>
+            <th>Lunch</th>
+            <th>Dinner</th>
+            <th>Actions</th>
+        </tr>
+        <% menu.forEach(item => { %>
+            <tr>
+                <td><%= item.day %></td>
+                <td><%= item.breakfast %></td>
+                <td><%= item.lunch %></td>
+                <td><%= item.dinner %></td>
+                <td>
+                    <a href="/admin/mess/edit/<%= item._id %>">Edit</a> | 
+                    <a href="/admin/mess/delete/<%= item._id %>" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+
+</body>
+</html>

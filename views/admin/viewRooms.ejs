@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Rooms</title>
+    <style>
+        /* body { font-family: Arial; padding: 20px; background: #f2f2f2; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background-color: #007BFF; color: white; }
+        a.edit { background: #ffc107; color: white; padding: 4px; }
+        a.delete { background: #dc3545; color: white; padding: 4px; } */
+
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 30px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+a:hover {
+    opacity: 0.9;
+}
+
+a[href*="add"] {
+    background-color: #28a745;
+    color: white;
+}
+
+a[href*="allocate"] {
+    background-color: #17a2b8;
+    color: white;
+}
+
+a.edit {
+    background-color: #ffc107;
+    color: white;
+    padding: 6px 12px;
+    margin-right: 5px;
+}
+
+a.delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+    </style>
+</head>
+<body>
+    <h1>All Rooms</h1>
+    <a href="/admin/rooms/add">Add New Room</a>
+    <a href="/admin/rooms/allocate">Allocate room </a>
+    <a href="/admin/rooms/deallocate">Deallocate room </a>
+    <!-- <form action="/admin/rooms/deallocate" method="POST" style="display:inline;">
+    
+                        
+        "submit">Deallocate</button>
+    </form>
+    -->
+    <table>
+        <thead>
+            <tr>
+                <th>Room Number</th>
+                <!-- <th>Type</th> -->
+                <th>Capacity</th>
+                <th>Occupied</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% rooms.forEach(room => { %>
+                <tr>
+                    <td><%= room.roomNumber %></td>
+                    <!-- <td><%= room.type %></td> -->
+                    <td><%= room.capacity %></td>
+                    <td><%= room.occupied %></td>
+                    <td><%= room.status %></td>
+                    <td>
+                        <a class="edit" href="/admin/rooms/edit/<%= room._id %>">Edit</a>
+                        <a class="delete" href="/admin/rooms/delete/<%= room._id %>">Delete</a>
+                    </td>
+                    
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

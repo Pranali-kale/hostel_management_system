@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Image Gallery</title>
+    
+    <link rel="stylesheet" href="/stylesheets/gallery.css">
+</head>
+<body>
+
+    <h2>Image Gallery</h2>
+
+    <!-- Image Upload Form -->
+    <form action="/admin/gallery/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Upload Image</button>
+    </form>
+
+    <!-- Display Uploaded Images -->
+    <div class="gallery">
+        <% images.forEach(image => { %>
+            <div class="image-box" onclick="openFullscreen('<%= image.imagePath %>')">
+                <img src="<%= image.imagePath %>" alt="<%= image.imageName %>">
+                <p>Uploaded on: <%= image.uploadDate.toDateString() %></p>
+                <form action="/admin/gallery/delete/<%= image._id %>" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Fullscreen Image View -->
+    <div class="fullscreen-img" id="fullscreenImg">
+        <span onclick="closeFullscreen()">&times;</span>
+        <img id="fullImage" src="" alt="Full Image">
+    </div>
+
+    <script>
+        function openFullscreen(imgSrc) {
+            document.getElementById("fullImage").src = imgSrc;
+            document.getElementById("fullscreenImg").style.display = "flex";
+        }
+
+        function closeFullscreen() {
+            document.getElementById("fullscreenImg").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
